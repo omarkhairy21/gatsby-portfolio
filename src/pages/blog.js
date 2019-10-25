@@ -25,7 +25,7 @@ const BlogPage = () => {
     return (
         <Layout>
             <h1>Blog</h1>
-            <ol>
+            <ol style={{listStyle: 'none'}}>
                 {data.allMarkdownRemark.edges.map((edge) => {
                     return (
                         <li>

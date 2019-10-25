@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Grid} from 'semantic-ui-react'
+import {Container} from 'semantic-ui-react'
 import Navbar from './Navbar'
 import Footer from './footer';
 
@@ -14,7 +14,6 @@ const Layout = (props) => {
                 <Navbar />
                 {props.children}
             </div>
-
             
             <Footer />
         </Container>
