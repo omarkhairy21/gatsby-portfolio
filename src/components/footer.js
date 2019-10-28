@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import {List, Icon, Grid, GridColumn} from 'semantic-ui-react'
 
 const socialMedia = () => {
+  let S3resume= 'https://khairy-resume.s3-us-west-1.amazonaws.com/OmarResume.pdf';
   let socialLinks =  [
     {
       name: 'github',
@@ -36,12 +37,16 @@ const Footer = () => {
     }
   `)
     return (
-        <footer style={{margin:'40vh 0 5vh 0'}}>
-          <Grid>
-            <GridColumn width={8}>
-            <p>Created by {data.site.siteMetadata.author}, © 2019</p>
+        <footer style={{margin:'30vh 0 5vh 0', borderTopStyle: 'solid', borderColor:'#03a9f44f', padding:'2rem 0'}}>
+          <Grid columns='16'>
+            <GridColumn width={7}>
+            <p>Created by {data.site.siteMetadata.author}, © 2019  
+            </p>
             </GridColumn>
-            <GridColumn width={8}>
+            <GridColumn width='3'>
+              <a href='https://khairy-resume.s3-us-west-1.amazonaws.com/OmarResume.pdf'>&#127941;resume</a>
+            </GridColumn>
+            <GridColumn width={6}>
             <List floated='right' horizontal>
               { socialMedia() }
               </List> 

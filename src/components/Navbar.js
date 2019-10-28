@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <Menu  secondary pointing borderless style={StyleMenu}>
         <Menu.Item as='a' >
-        <Link to='/'><Image src={logo} />Khairy</Link>
+        <Link to='/'><Image src={logo} /></Link>
         </Menu.Item>
           <Menu.Item className={headerStyles.navbarLinks}  as='a' position='right' link='true' color='blue'>
            <Link to='/about'>ME</Link>
