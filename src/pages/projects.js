@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import {Header, Image, Divider, Button, Grid, Segment} from 'semantic-ui-react'
+import {Header, Image, Grid, Segment} from 'semantic-ui-react'
 import projectPicture from '../../static/medium-thumb.png';
 const projects = () => {
   const br ={

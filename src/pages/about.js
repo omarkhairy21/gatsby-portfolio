@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+//import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import {Header, Image, Modal, Button, Grid, Segment} from 'semantic-ui-react'
+import {Header, Image, Modal, Button, Grid, Divider ,Segment} from 'semantic-ui-react'
+import { triggerModal } from '../components/Modal';
 import avatar from '../../static/22.jpg';
 
 /**
@@ -21,10 +22,16 @@ const AboutPage = () => {
         backgroundColor: '#03a9f4',
         marginBottom: '10vh'
     }
+    const buttonStyle  = {
+        margin: '10vh 10vh',
+        padding: '2.5vh 10vh',
+        fontDize: 'large',
+        'fontWeight': 500
+    }
     return (
         <Layout>
             <Segment color='blue' stacked textAlign='center'>
-            <Image centered avatar size='small' src={avatar} style={{ padding: 'auto'}} />
+            <Image centered avatar size='small' src={avatar} style={{ padding: 'auto', marginTop:'5vh'}} />
             <Header as='h3' textAlign='center'>
                 <Header.Content  >
                     <hr style={ br } />
@@ -36,46 +43,17 @@ const AboutPage = () => {
 
                     <br />
 
-                    <Modal trigger={<Button> &#128295; My Gears </Button>} centered={false}>
-                        <Modal.Header>Gears</Modal.Header>
-                        <Modal.Content >
-                        <Grid columns='equal'>
-                            <Grid.Row stretched>
-                            <Grid.Column>
-                                <Segment>React.js</Segment>
-                                <Segment>Redux.js</Segment>
-                            </Grid.Column>
-                            <Grid.Column width={6}>
-                                <Segment>
-                                    Front End
-                                </Segment>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <Segment>Nest.js</Segment>
-                                <Segment>Express.js</Segment>
-                            </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Row>
-                            <Grid.Column>
-                                <Segment>Api</Segment>
-                                <Segment>Jest.js</Segment>
-                            </Grid.Column>
-                            <Grid.Column width={6}>
-                                <Segment>
-                                    Back-End
-                                </Segment>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <Segment>Travis</Segment>
-                                <Segment>Unit Testing</Segment>
-                            </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
-                        </Modal.Content>
-                    </Modal>
+                    { triggerModal() }    
+                   
                 </Header.Content>
             </Header>
-            </Segment>            
+            <Divider horizontal clearing>Or Download</Divider>
+
+            <Button basic size='large' color='blue' style={buttonStyle}>
+            <a href='https://khairy-resume.s3-us-west-1.amazonaws.com/OmarResume.pdf'><span>&#127941;</span>Resume</a>
+            </Button>            
+            </Segment>
+
         </Layout>   
     );
 }

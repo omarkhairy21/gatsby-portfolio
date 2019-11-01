@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 import Footer from './footer';
 
 import '../styles/index.scss'
-import layoutStyles from '../styles/layout.module.scss' 
+//import layoutStyles from '../styles/layout.module.scss' 
 import 'semantic-ui-css/semantic.css';
 
 const Layout = (props) => {

@@ -16,7 +16,7 @@
 //   span{
 //     margin-right: auto;
 //   }
-// }
+// }re
 
 // .nav-links{
 //   display: flex;
@@ -52,11 +52,26 @@
 }
 
 .title{
-  color: black;
-  font-size: 2rem;
-  text-decoration: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  span{
-    margin-right: auto;
-  }
+
+  font-style: normal;
+  border-style: inset;
+  font-size: initial;
+  padding: 6px 6px;
+  font-weight: 700;
+  font-family: cursive;
 }
+
+  // span{
+  //   font-size: 1vm;
+  //   text-decoration: none;
+  //   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  //   margin-right: 1rem;
+  // }
+  //   font-style: normal;
+  //   /* border-bottom: #3F51B5; */
+  //   border-style: inset;
+  //   /* margin: 1vh 1vw; */
+  //   font-size: initial;
+  //   padding: 6px 6px;
+  //   font-weight: 700;
+  //   font-family: cursive;

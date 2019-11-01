@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import {Container, Grid, Header, Image, Menu} from 'semantic-ui-react'
+import { Menu, Image} from 'semantic-ui-react'
 import headerStyles from '../styles/header.module.scss';
-import logo from '../../static/wall.png';
+//import logo from '../../static/wall.png';
 const Navbar = () => {
   const data  = useStaticQuery(graphql`
     query {
@@ -14,12 +14,16 @@ const Navbar = () => {
     }
   `)
   const StyleMenu = {
-    border: 'none'
+    border: 'none',
+    display:'flex',
+
   }
   return (
-    <Menu  secondary pointing borderless style={StyleMenu}>
-        <Menu.Item as='a' >
-        <Link to='/'><Image src={logo} /></Link>
+    <Menu  secondary pointing borderless  style={StyleMenu}>
+        <Menu.Item className={headerStyles.title}>
+        <Link  to="/">
+           { data.site.siteMetadata.title }
+        </Link>
         </Menu.Item>
           <Menu.Item className={headerStyles.navbarLinks}  as='a' position='right' link='true' color='blue'>
            <Link to='/about'>ME</Link>
