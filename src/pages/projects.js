@@ -5,8 +5,7 @@ import {
   Header, Image,
   Item, Responsive ,
   Menu ,Grid,
-  Segment, Button,
-  Icon, Label
+  Segment
   } from 'semantic-ui-react'
 import projectPicture from '../../static/browser_128X128.png';
 

@@ -4,13 +4,13 @@ module.exports = {
     author: 'Omar Khairy'
   },
   plugins: [
-      // 'gatsby-plugin-sass',
-      // {
-      //   resolve: `gatsby-plugin-typography`,
-      //   options: {
-      //     pathToConfigModule: `src/utils/typography`,
-      //   },
-      // },
+      'gatsby-plugin-sass',
+      {
+        resolve: `gatsby-plugin-typography`,
+        options: {
+          pathToConfigModule: `src/utils/typography`,
+        },
+      },
       {
         resolve:'gatsby-source-filesystem',
         options: {

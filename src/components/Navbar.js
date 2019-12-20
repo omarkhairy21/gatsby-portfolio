@@ -14,7 +14,7 @@ const Navbar = () => {
     }
   `)
   const StyleMenu = {
-    border: 'none',
+    borderBottom: ' rgba(3, 169, 244, 0.31) 2px solid',
     display:'flex',
     margin: '2vh 0'
 
@@ -34,7 +34,7 @@ const Navbar = () => {
           Omar
           */}
           <Image  src={logo} avatar />
-            <span className={headerStyles.title}>omar khairy</span>
+            <span className={headerStyles.title}><Link to='/'>khairy</Link></span>
         </Menu.Item>
           <Menu.Item className={headerStyles.navbarLinks}  as='a' position='right' link='true' color='blue'>
            <Link to='/about'>ME</Link>

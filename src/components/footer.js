@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby"
-import {List, Icon, Grid, GridColumn} from 'semantic-ui-react'
-
+import {List, Icon, Grid, GridColumn, Image} from 'semantic-ui-react'
+import findTheSource from '../../Data/gears';
 import { socialLinks } from '../../Data/Social-Media';
 
 const socialMedia = () => {
@@ -15,7 +15,7 @@ const socialMedia = () => {
 }
 
 const footerStyle= {
-    margin:'30vh 0 5vh 0',
+    margin:'3vh 0 0s 0',
     borderTopStyle: 'solid',
     borderColor:'#03a9f44f', 
     padding:'2rem 0'
@@ -33,10 +33,15 @@ const Footer = () => {
     }
   `)
     return (
-        <footer style={footerStyle}>
+        <footer style={footerStyle} >
           <Grid columns='16'>
             <GridColumn width={8}>
-            <p style={{lineHeight:'5vh'}}>Created by {data.site.siteMetadata.author}, © 2019  
+            <p style={{lineHeight:'5vh'}}>Created by {data.site.siteMetadata.author}
+            , © 2019 <span  style={{marginLeft: '5px'}}>
+            <Image centered  size='mini' src={findTheSource('netlify')} style={{display:'inline', width:'25px'}}/>
+            </span><span style={{marginLeft: '5px'}}>
+            <Image centered  size='mini' src={findTheSource('gatsby')} style={{display:'inline', width:'25px'}}/>   
+            </span>
             </p>
             </GridColumn>
             <GridColumn width={8}>

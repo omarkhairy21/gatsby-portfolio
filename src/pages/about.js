@@ -3,8 +3,9 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import Head from '../components/head';
-import {Header, Image, Modal, Button, Grid, Divider ,Segment} from 'semantic-ui-react'
-import { triggerModal } from '../components/Modal';
+import {Header, Image, Button, Divider ,Segment} from 'semantic-ui-react'
+//import { triggerModal } from '../components/Modal';
+import {Gears} from '../components/gears';
 import avatar from '../../static/22.jpg';
 
 /**
@@ -32,20 +33,22 @@ const AboutPage = () => {
     return (
         <Layout>
              <Head title="About"/>
-            <Segment color='blue' stacked textAlign='center'>
-            <Image centered avatar size='small' src={avatar} style={{ padding: 'auto', marginTop:'5vh'}} />
+            <Segment  basic textAlign='center'>
+            <Image centered avatar size='small' src={avatar} style={{ padding: 'auto', marginTop:'5vh', borderRadius: '50%'}} />
+            <Header as='h1'>Omar Khairy</Header> 
+            <Header as='h3' style={{color: '#666'}}>Software Developer, study Computer Engineering</Header> 
             <Header as='h3' textAlign='center'>
                 <Header.Content  >
                     <hr style={ br } />
                     <p style={{fontWeight: 300}}>
-                    &#128075;I am Omar Khairy, Software Developer, study Computer Engineering
+                    <span>&#128075;</span>I am Omar Khairy, Software Developer, study Computer Engineering
                     Focus on React Stack and Api Implementation. 
-                    &#9889;Fascinated to build scalable, maintainable, testable Web Applications
+                    <span>&#9889;</span>Fascinated to build scalable, maintainable, testable Web Applications
                     </p>
 
                     <br />
 
-                    { triggerModal() }    
+                    { Gears() }    
                    
                 </Header.Content>
             </Header>

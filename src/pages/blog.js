@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout';
 import Head from '../components/head';
+import { Header } from 'semantic-ui-react';
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
@@ -26,7 +27,7 @@ const BlogPage = () => {
     return (
         <Layout>
           <Head title="Blog"/>
-            <h1>Blog</h1>
+          <Header as='h1'>Blog</Header>
             <ol style={{listStyle: 'none'}}>
                 {data.allMarkdownRemark.edges.map((edge) => {
                     return (

@@ -1,3 +1,18 @@
+.navbar-links{
+  margin-left: 0 !important;
+}
+
+.title{
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+  height: 22px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 18px;
+  color: #767676;
+}
+
 // .header{
 //   padding: 1rem 0 3rem;
 //   display: inline-flex;
@@ -46,22 +61,6 @@
 // .active-nav-item{
 //   color: #666666;
 // }
-
-.navbar-links{
-  margin-left: 0 !important;
-}
-
-.title{
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-  height: 22px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 500;
-  font-family: 'Ubuntu', sans-serif;
-  line-height: 18px;
-  color: #767676;
-}
-
 
 // element.style {
 //   height: 28px;
