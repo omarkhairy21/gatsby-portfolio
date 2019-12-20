@@ -3,8 +3,8 @@ import Typography from "typography";
 
 const typography = new Typography({
   baseFontSize: '16px',
-  headerFontFamily: ['Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-  bodyFontFamily: ['Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+  headerFontFamily: ['Ubuntu',  'sans-serif'],
+  bodyFontFamily: ['Ubuntu', 'sans-serif'],
 });
 
 export const { scale, rhythm, options } = typography;

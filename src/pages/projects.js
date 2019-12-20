@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../components/layout';
+import Head from '../components/head';
 import {
   Header, Image,
   Item, Responsive ,
@@ -7,7 +8,7 @@ import {
   Segment, Button,
   Icon, Label
   } from 'semantic-ui-react'
-import projectPicture from '../../static/thumb.png';
+import projectPicture from '../../static/browser_128X128.png';
 
 class projects extends Component {
    br = {
@@ -115,6 +116,7 @@ class projects extends Component {
     const { activeItem } = this.state;
     return (
         <Layout>
+        <Head title="Projects"/>
         <Header as='h2' color='blue' style={{ marginTop: '10vh' }}>
           Latest Projects
         </Header>

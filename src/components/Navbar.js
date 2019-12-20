@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { Menu, Image, Button} from 'semantic-ui-react'
+import { Menu, Image} from 'semantic-ui-react'
 import headerStyles from '../styles/header.module.scss';
-import logo from '../../static/wall.png';
+import logo from '../../static/monster_32X32.png';
 const Navbar = () => {
   const data  = useStaticQuery(graphql`
     query {
@@ -21,17 +21,20 @@ const Navbar = () => {
   }
   return (
     <Menu  secondary pointing borderless  style={StyleMenu}>
-        <Menu.Item style={{padding: '0 0'}}>
-          <Button basic  animated>
-          <Button.Content hidden inverted>
-          <Link  to="/">
+        <Menu.Item style={{padding: '1vh 0'}}>
+          {/*
+          <Button basic  >
+          <Button.Content  >
+           <Link  to="/">
             { data.site.siteMetadata.title }
-          </Link>
-          </Button.Content>
-          <Button.Content visible >
+          </Link> 
             <Image src={logo} />
           </Button.Content>
           </Button>
+          Omar
+          */}
+          <Image  src={logo} avatar />
+            <span className={headerStyles.title}>omar khairy</span>
         </Menu.Item>
           <Menu.Item className={headerStyles.navbarLinks}  as='a' position='right' link='true' color='blue'>
            <Link to='/about'>ME</Link>

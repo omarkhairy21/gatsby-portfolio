@@ -1,6 +1,7 @@
 import React from 'react'
 //import { Link } from 'gatsby'
 import Layout from '../components/layout';
+import Head from '../components/head';
 import {
     Divider,
     Grid,
@@ -17,6 +18,7 @@ const IndexPage = () => {
     }
     return (
         <Layout>
+            <Head title="Home"/>
             <Header as='h3' color='grey' style={{ marginTop: '10vh' }}>
             &#9889;Fascinated to build scalable, maintainable, testable Web Applications.
             </Header>

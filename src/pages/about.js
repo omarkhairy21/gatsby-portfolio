@@ -2,6 +2,7 @@ import React from 'react';
 //import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
+import Head from '../components/head';
 import {Header, Image, Modal, Button, Grid, Divider ,Segment} from 'semantic-ui-react'
 import { triggerModal } from '../components/Modal';
 import avatar from '../../static/22.jpg';
@@ -30,6 +31,7 @@ const AboutPage = () => {
     }
     return (
         <Layout>
+             <Head title="About"/>
             <Segment color='blue' stacked textAlign='center'>
             <Image centered avatar size='small' src={avatar} style={{ padding: 'auto', marginTop:'5vh'}} />
             <Header as='h3' textAlign='center'>

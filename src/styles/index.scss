@@ -1,10 +1,15 @@
 body {
-  border: solid;
-  border-color: #03A9F4;
-  height: 100%;
+  overflow-x: initial !important;
+}
+#___gatsby{
+  border: solid 7px;
+  border-color: #17a5ff;
   margin: 0 0;
 }
-
 img {
   margin-bottom: 0 !important;
 }
+
+// Blue #003bd3
+// semi-blue #16edff
+// light #17a5ff
