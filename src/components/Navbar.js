@@ -34,15 +34,16 @@ const Navbar = () => {
           Omar
           */}
           <Image  src={logo} avatar />
-            <span className={headerStyles.title}><Link to='/'>khairy</Link></span>
+            <span className={headerStyles.title}><Link to='/'>KHAIRY</Link></span>
         </Menu.Item>
-          <Menu.Item className={headerStyles.navbarLinks}  as='a' position='right' link='true' color='blue'>
+        
+          <Menu.Item className={headerStyles.navbarLinks}   position='right' link='true' color='blue'>
            <Link to='/about'>ME</Link>
           </Menu.Item>
-          <Menu.Item as='a' >
+          <Menu.Item >
           <Link to='/blog'>Blog</Link>
           </Menu.Item>
-          <Menu.Item as='a' >
+          <Menu.Item>
           <Link to='/projects'>Projects</Link>
           </Menu.Item>
     </Menu>
