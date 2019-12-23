@@ -54,5 +54,6 @@ module.exports = {
         options: {
           trackingId: process.env.GOOGLE_ANALYTICS_TRACING_ID || "none",
         },
+      }  
   ]
 }
