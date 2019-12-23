@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout';
 import Head from '../components/head';
-import { Header } from 'semantic-ui-react';
+import { Header, List } from 'semantic-ui-react';
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
@@ -28,18 +28,18 @@ const BlogPage = () => {
         <Layout>
           <Head title="Blog"/>
           <Header as='h1'>Blog</Header>
-            <ol style={{listStyle: 'none'}}>
+          <List divided relaxed verticalAlign >
                 {data.allMarkdownRemark.edges.map((edge) => {
                     return (
-                        <li>
-                            <Link to={`/blog/${edge.node.fields.slug}`}>
-                                <h2>{edge.node.frontmatter.title}</h2>
-                                <p>{edge.node.frontmatter.date}</p>
-                            </Link>
-                        </li>
+                            <List.Item style={{marginBottom:'1vh'}}>
+                            <List.Content>
+                            <List.Header as='h2' style={{marginBottom:'0.5rem'}}> <span>&#9981;</span><Link to={`/blog/${edge.node.fields.slug}`}>{edge.node.frontmatter.title}</Link></List.Header>
+                            <List.Description as='a'  style={{marginLeft:'2rem', fontSize:'small'}}>{edge.node.frontmatter.date}</List.Description>
+                            </List.Content>
+                            </List.Item>
                     )
                 })}
-            </ol>
+            </List >
         </Layout>
     )
 }

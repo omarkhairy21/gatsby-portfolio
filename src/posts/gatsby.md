@@ -1,5 +1,5 @@
 ---
-title: "How To Write Better SQL"
+title: "How To Write Better SQL 2"
 date: "2019-010-04"
 ---
 

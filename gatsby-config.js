@@ -48,6 +48,11 @@ module.exports = {
           theme_color_in_head: false,
         },
       },
-      'gatsby-transformer-remark'
+      'gatsby-transformer-remark',
+      {
+        resolve: 'gatsby-plugin-google-analytics',
+        options: {
+          trackingId: process.env.GOOGLE_ANALYTICS_TRACING_ID || "none",
+        },
   ]
 }
