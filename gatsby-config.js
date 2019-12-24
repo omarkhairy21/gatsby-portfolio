@@ -4,6 +4,13 @@ module.exports = {
     author: 'Omar Khairy'
   },
   plugins: [
+      {
+          resolve: 'gatsby-source-contentful',
+          options: {
+              spaceId: process.env.CONTENTFUL_SPACE_ID,
+              accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+          }
+      },
       'gatsby-plugin-sass',
       {
         resolve: `gatsby-plugin-typography`,
@@ -48,6 +55,8 @@ module.exports = {
           theme_color_in_head: false,
         },
       },
+      'gatsby-plugin-sharp',
+      `gatsby-transformer-sharp`,
       'gatsby-transformer-remark',
       {
         resolve: 'gatsby-plugin-google-analytics',
