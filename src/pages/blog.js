@@ -7,7 +7,50 @@ import { Header, List } from 'semantic-ui-react';
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
-        query {
+        query{
+            allContentfulBlogPost(sort:{fields:publishedData, order:DESC}) {
+                edges{
+                node{
+                        title
+                        publishedData(formatString:"MMMM DD, YYYY")
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+
+    return (
+        <Layout>
+          <Head title="Blog"/>
+          <Header as='h1'>Blog</Header>
+          <List divided relaxed verticalAlign >
+                {data.allContentfulBlogPost.edges.map((edge) => {
+                    return (
+                            <List.Item style={{marginBottom:'1vh'}}>
+                            <List.Content>
+                            <List.Header as='h2' style={{marginBottom:'0.5rem'}}> 
+                            <span>&#9981;</span>
+                            <Link to={`/blog/${edge.node.slug}`}>
+                            {edge.node.title}
+                            </Link>
+                            </List.Header>
+                            <List.Description style={{marginLeft:'2rem', fontSize:'small'}}>{edge.node.publishedData}</List.Description>
+                            </List.Content>
+                            </List.Item>
+                    )
+                })}
+            </List>
+        </Layout>
+    )
+}
+
+/**
+ * 
+ * 
+ *           
+ * 
+ *         query {
             allMarkdownRemark {
                 edges {
                     node {
@@ -22,13 +65,7 @@ const BlogPage = () => {
                 }
             }
         }
-    `)
-
-    return (
-        <Layout>
-          <Head title="Blog"/>
-          <Header as='h1'>Blog</Header>
-          <List divided relaxed verticalAlign >
+        <List divided relaxed verticalAlign >
                 {data.allMarkdownRemark.edges.map((edge) => {
                     return (
                             <List.Item style={{marginBottom:'1vh'}}>
@@ -40,8 +77,5 @@ const BlogPage = () => {
                     )
                 })}
             </List >
-        </Layout>
-    )
-}
-
+ */
 export default BlogPage

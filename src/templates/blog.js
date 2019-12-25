@@ -1,27 +1,37 @@
 import React from 'react';
 import {Container} from 'semantic-ui-react'
 import Layout from '../components/layout';
-import {grapgql} from 'gatsby';
+import {graphql} from 'gatsby';
+import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
+export const query= graphql`
+  query($slug: String!){
+    contentfulBlogPost(slug:{eq: $slug}){
+      title
+      publishedData(formatString:"MMMM DD, YYYY")
+      body{
+        json
+      }
+    }
+  }
 
-const Blog = () => {
+`
+const Blog = (props) => {
+
+  const options = {
+    renderNode: {
+      "embedded-asset-block": (node) => {
+        const alt = node.data.target.fields.title['en-US']
+        const url = node.data.target.fields.file['en-US'].url
+        return <img alt={alt} src={url} />
+      }
+    }
+  }
+
   return (
     <Layout>
-      <Container text>
-      <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-      ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et
-      magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-      ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-      quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-      arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-      Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras
-      dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-      Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-      Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-      viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
-      Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-    </p>
-      </Container>
+    <h1>{props.data.contentfulBlogPost.title}</h1>
+    <p>{props.data.contentfulBlogPost.publishedData}</p>
+    {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
     </Layout>
   )
 }

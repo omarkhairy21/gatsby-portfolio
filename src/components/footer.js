@@ -15,7 +15,7 @@ const socialMedia = () => {
 }
 
 const footerStyle= {
-    margin:'3vh 0 0s 0',
+    margin:'3vh 0 1vh 0',
     borderTopStyle: 'solid',
     borderColor:'#03a9f44f', 
     padding:'2rem 0'
