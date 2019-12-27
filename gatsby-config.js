@@ -7,8 +7,8 @@ module.exports = {
       {
           resolve: 'gatsby-source-contentful',
           options: {
-              spaceId: process.env.CONTENTFUL_SPACE_ID,
-              accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+              spaceId: '3csvu99xklh5',
+              accessToken: 'idriLLqjq04FgWfm4SbTMdPVzswKTAh6k_qax4AZLYA'
           }
       },
       'gatsby-plugin-sass',
@@ -24,17 +24,21 @@ module.exports = {
             name: 'src',
             path: `${__dirname}/src/`
         }
-      },    
+      },
+      'gatsby-plugin-sitemap',    
       {
         resolve: `gatsby-plugin-manifest`,
         options: {
           name: `Khairy`,
           short_name: `Khairy`,
+          description:`Software Developer facilitated to Build Scalable, MainTainable Testable Web Applications`,
           start_url: `/`,
           background_color: `#ffffff`,
           theme_color: `#03A9F4`,
           display: `minimal-ui`,
+          lang: `en`,
           icon: `./static/monster_512X512.png`,        
+          //theme_color_in_head: false,
           // icons: [
           //   {
           //     src: './static/icon_128X128.png',
@@ -52,7 +56,6 @@ module.exports = {
           //     type: 'image/png',
           //   },
           // ],
-          theme_color_in_head: false,
         },
       },
       'gatsby-plugin-sharp',
@@ -63,6 +66,16 @@ module.exports = {
         options: {
           trackingId: process.env.GOOGLE_ANALYTICS_TRACING_ID || "none",
         },
-      }  
+      },
+      {
+        resolve: `gatsby-plugin-netlify`,
+        options: {
+          headers: {
+            '/*.js': ['cache-control: public, max-age=31536000, immutable'],
+            '/*.css': ['cache-control: public, max-age=31536000, immutable'],
+            '/sw.js': ['cache-control: public, max-age=0, must-revalidate'],
+          },
+        },
+      }, 
   ]
 }
