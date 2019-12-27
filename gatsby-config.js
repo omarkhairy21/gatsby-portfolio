@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: 'Khairy',
-    author: 'Omar Khairy'
+    author: 'Omar Khairy',
+    description:`Software Developer facilitated to Build Scalable, MainTainable Testable Web Applications`,
+    siteUrl: 'https://khairy.me',
   },
   plugins: [
       {
           resolve: 'gatsby-source-contentful',
           options: {
-              spaceId: '3csvu99xklh5',
-              accessToken: 'idriLLqjq04FgWfm4SbTMdPVzswKTAh6k_qax4AZLYA'
+              spaceId: process.env.CONTENTFUL_SPACE_ID,
+              accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
           }
       },
       'gatsby-plugin-sass',
