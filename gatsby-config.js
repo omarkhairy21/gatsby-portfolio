@@ -39,7 +39,7 @@ module.exports = {
           theme_color: `#03A9F4`,
           display: `minimal-ui`,
           lang: `en`,
-          icon: `./static/monster_512X512.png`,        
+          icon: `./static/monster.svg`,        
           //theme_color_in_head: false,
           // icons: [
           //   {

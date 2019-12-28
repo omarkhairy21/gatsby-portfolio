@@ -12,7 +12,7 @@ import {
 } from 'semantic-ui-react'
 
 import BlogIcon from '../../static/blog_128X128.png';   
-import CloudIcon from '../../static/cloud-computing_128X128.png';   
+import CloudIcon from '../../static/cloud-computing.svg';   
 const IndexPage = () => {
     const br ={
         boxSizing: 'border-box',

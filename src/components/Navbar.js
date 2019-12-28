@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { Menu, Image} from 'semantic-ui-react'
 import headerStyles from '../styles/header.module.scss';
-import logo from '../../static/monster_32X32.png';
+import logo from '../../static/monster.svg';
 const Navbar = () => {
   const data  = useStaticQuery(graphql`
     query {
