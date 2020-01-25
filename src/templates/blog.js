@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container} from 'semantic-ui-react'
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
@@ -16,7 +15,6 @@ export const query= graphql`
 
 `
 const Blog = (props) => {
-
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {

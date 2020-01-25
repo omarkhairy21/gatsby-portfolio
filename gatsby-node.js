@@ -1,24 +1,25 @@
 const path = require('path');
 
-// module.exports.onCreateNode = ({ node, actions }) => {
-//   const { createNodeField } = actions;
+module.exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
 
-//   if(node.internal.type  === 'MarkdownRemark' ){
-//     const slug = path.basename(node.fileAbsolutePath, '.md')
+  if(node.internal.type  === 'MarkdownRemark' ){
+    const slug = path.basename(node.fileAbsolutePath, '.md')
 
-//     createNodeField({
-//       node,
-//       name:'slug',
-//       value:slug
-//     })
-//   }
-// }
+    createNodeField({
+      node,
+      name:'slug',
+      value:slug
+    })
+  }
+}
 
-module.exports.createPages = async ({ graphql, actions }) => {
+module.exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog.js')
+  const blogTemplate = path.resolve('./src/templates/blog.js');
+  const projectTemplate = path.resolve('./src/templates/project.js');
 
-  const res = await graphql(`
+  const resOfBlogs = await graphql(`
       query {
         allContentfulBlogPost {
               edges {
@@ -29,8 +30,26 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
       }
   `)
-
-    res.data.allContentfulBlogPost.edges.forEach((edge) => {
+  const resOfProjects = await graphql(`
+      query {
+      allMarkdownRemark {
+        edges {
+            node {
+                fields {
+                    slug
+                }
+            }
+        }
+    }
+  `)
+  /**
+   * Handle errors Exception  
+   */
+  if (resOfBlogs.errors || resOfProjects ) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  resOfBlogs.data.allContentfulBlogPost.edges.forEach((edge) => {
       createPage({
         component: blogTemplate,
         path: `/blog/${edge.node.slug}`,
@@ -39,5 +58,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       });
     });
+
+    resOfProjects.data.allMarkdownRemark.edges.forEach((edge) => {
+      createPage({
+          component: projectTemplate,
+          path: `/projects/${edge.node.fields.slug}`,
+          context: {
+              slug: edge.node.fields.slug
+          }
+      });
+  });
 
 }

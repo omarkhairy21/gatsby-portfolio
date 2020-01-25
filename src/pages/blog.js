@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout';
-import Head from '../components/head';
+import SEO from '../components/SEO';
 import { Header, List } from 'semantic-ui-react';
 
 const BlogPage = () => {
@@ -22,7 +22,7 @@ const BlogPage = () => {
 
     return (
         <Layout>
-          <Head title="Blog"/>
+          <SEO title="Blog"/>
           <Header as='h1'>Blog</Header>
           <List divided relaxed verticalAlign >
                 {data.allContentfulBlogPost.edges.map((edge) => {

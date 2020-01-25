@@ -2,7 +2,7 @@ import React from 'react';
 //import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import Head from '../components/head';
+import SEO from '../components/SEO';
 import {Header, Image, Button, Divider ,Segment} from 'semantic-ui-react'
 //import { triggerModal } from '../components/Modal';
 import {Gears} from '../components/gears';
@@ -32,7 +32,7 @@ const AboutPage = () => {
     }
     return (
         <Layout>
-             <Head title="About"/>
+             <SEO title="About"/>
             <Segment  basic textAlign='center'>
             <Image centered avatar size='small' src={avatar} style={{ padding: 'auto', marginTop:'5vh', borderRadius: '50%'}} />
             <Header as='h1'>Omar Khairy</Header> 
