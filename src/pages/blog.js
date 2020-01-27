@@ -30,7 +30,7 @@ const BlogPage = () => {
                             <List.Item style={{marginBottom:'1vh'}}>
                             <List.Content>
                             <List.Header as='h2' style={{marginBottom:'0.5rem'}}> 
-                            <span>&#9981;</span>
+                            <span role="img">&#9981;</span>
                             <Link to={`/blog/${edge.node.slug}`}>
                             {edge.node.title}
                             </Link>

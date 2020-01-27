@@ -5,6 +5,7 @@ import Footer from './footer';
 import '../styles/index.scss'
 import layoutStyles from '../styles/layout.module.scss' 
 import 'semantic-ui-css/semantic.css';
+//import '../styles/about.module.css';
 
 const Layout = (props) => {
     return (

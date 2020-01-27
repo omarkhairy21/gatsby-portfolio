@@ -1,18 +1,18 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { Menu, Image} from 'semantic-ui-react'
 import headerStyles from '../styles/header.module.scss';
 import logo from '../../static/monster.svg';
 const Navbar = () => {
-  const data  = useStaticQuery(graphql`
-    query {
-      site {
-            siteMetadata {
-              title
-            }
-	        }
-    }
-  `)
+  // const data  = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //           siteMetadata {
+  //             title
+  //           }
+	//         }
+  //   }
+  // `)
   const StyleMenu = {
     borderBottom: ' rgba(3, 169, 244, 0.31) 2px solid',
     display:'flex',
