@@ -1,6 +1,6 @@
 import React from 'react';
-import {Header, Image, Grid, Card} from 'semantic-ui-react'
-
+import {Header, Image, Grid, Card} from 'semantic-ui-react';
+import Resume from './resume';
 const WhoAmI= () => {
 
   return(
@@ -28,7 +28,7 @@ const WhoAmI= () => {
     </Card.Description>
     </Card.Content>
     <Card.Content extra>
-    Fascinated to build scalable, maintainable, testable Web Applications.
+      <Resume />
     </Card.Content>
     </Card>
     </Grid.Column>

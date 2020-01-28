@@ -5,15 +5,13 @@ const WhatAmIUsing= () => {
 
   return(
         <Fragment>
-            <Container textAlign='center'>
+            {/* <Container textAlign='center'>
             <Header as='h1'>What am i Using 🧰 ?</Header>
-            </Container>
+            </Container> */}
             <Header as='h3'>
                 Main Programming Language 🕹️: 
                 <span  style={specialBlue}>JavaScript</span>
                 <span  style={specialBlue}>TypeScript</span>, Python
-            </Header>
-            <Header as='h3'>
                 Frontend: React Redux Redux-Saga Gatsby
             </Header>
             <Header as='h3'>
