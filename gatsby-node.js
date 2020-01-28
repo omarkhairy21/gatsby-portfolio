@@ -31,24 +31,25 @@ module.exports.createPages = async ({ graphql, actions, reporter }) => {
       }
   `)
   const resOfProjects = await graphql(`
-      query {
-      allMarkdownRemark {
-        edges {
-            node {
-                fields {
-                    slug
-                }
-            }
-        }
-    }
+        query {
+          allMarkdownRemark {
+              edges {
+                  node {
+                      fields {
+                          slug
+                      }
+                  }
+              }
+          }
+      }
   `)
   /**
    * Handle errors Exception  
    */
-  if (resOfBlogs.errors || resOfProjects ) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
+  // if (resOfBlogs.errors || resOfProjects ) {
+  //   reporter.panicOnBuild(`Error while running GraphQL query.`)
+  //   return
+  // }
   resOfBlogs.data.allContentfulBlogPost.edges.forEach((edge) => {
       createPage({
         component: blogTemplate,
