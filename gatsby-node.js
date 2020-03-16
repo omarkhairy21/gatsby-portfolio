@@ -14,12 +14,24 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-module.exports.createPages = async ({ graphql, actions }) => {
+module.exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog.js')
+  const blogTemplate = path.resolve('./src/templates/blog.js');
+  const projectTemplate = path.resolve('./src/templates/project.js');
 
-  const res = await graphql(`
+  const resOfBlogs = await graphql(`
       query {
+        allContentfulBlogPost {
+              edges {
+                  node {
+                     slug
+                  }
+              }
+          }
+      }
+  `)
+  const resOfProjects = await graphql(`
+        query {
           allMarkdownRemark {
               edges {
                   node {
@@ -31,15 +43,31 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
       }
   `)
-
-    res.data.allMarkdownRemark.edges.forEach((edge) => {
+  /**
+   * Handle errors Exception  
+   */
+  // if (resOfBlogs.errors || resOfProjects ) {
+  //   reporter.panicOnBuild(`Error while running GraphQL query.`)
+  //   return
+  // }
+  resOfBlogs.data.allContentfulBlogPost.edges.forEach((edge) => {
       createPage({
         component: blogTemplate,
-        path: `/blog/${edge.node.fields.slug}`,
+        path: `/blog/${edge.node.slug}`,
         context:{
-          slug: edge.node.fields.slug
+          slug: edge.node.slug
         }
       });
     });
+
+    resOfProjects.data.allMarkdownRemark.edges.forEach((edge) => {
+      createPage({
+          component: projectTemplate,
+          path: `/projects/${edge.node.fields.slug}`,
+          context: {
+              slug: edge.node.fields.slug
+          }
+      });
+  });
 
 }

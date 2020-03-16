@@ -1,11 +1,56 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
+import SEO from '../components/SEO';
+import { Header, List } from 'semantic-ui-react';
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
-        query {
+        query{
+            allContentfulBlogPost(sort:{fields:publishedData, order:DESC}) {
+                edges{
+                node{
+                        title
+                        publishedData(formatString:"MMMM DD, YYYY")
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+
+    return (
+        <Layout>
+          <SEO title="Blog"/>
+          <Header as='h1'>Blog</Header>
+          <List divided relaxed verticalAlign >
+                {data.allContentfulBlogPost.edges.map((edge) => {
+                    return (
+                            <List.Item style={{marginBottom:'1vh'}}>
+                            <List.Content>
+                            <List.Header as='h2' style={{marginBottom:'0.5rem'}}> 
+                            <span role="img">&#9981;</span>
+                            <Link to={`/blog/${edge.node.slug}`}>
+                            {edge.node.title}
+                            </Link>
+                            </List.Header>
+                            <List.Description style={{marginLeft:'2rem', fontSize:'small'}}>{edge.node.publishedData}</List.Description>
+                            </List.Content>
+                            </List.Item>
+                    )
+                })}
+            </List>
+        </Layout>
+    )
+}
+
+/**
+ * 
+ * 
+ *           
+ * 
+ *         query {
             allMarkdownRemark {
                 edges {
                     node {
@@ -20,25 +65,17 @@ const BlogPage = () => {
                 }
             }
         }
-    `)
-
-    return (
-        <Layout>
-            <h1>Blog</h1>
-            <ol>
+        <List divided relaxed verticalAlign >
                 {data.allMarkdownRemark.edges.map((edge) => {
                     return (
-                        <li>
-                            <Link to={`/blog/${edge.node.fields.slug}`}>
-                                <h2>{edge.node.frontmatter.title}</h2>
-                                <p>{edge.node.frontmatter.date}</p>
-                            </Link>
-                        </li>
+                            <List.Item style={{marginBottom:'1vh'}}>
+                            <List.Content>
+                            <List.Header as='h2' style={{marginBottom:'0.5rem'}}> <span>&#9981;</span><Link to={`/blog/${edge.node.fields.slug}`}>{edge.node.frontmatter.title}</Link></List.Header>
+                            <List.Description as='a'  style={{marginLeft:'2rem', fontSize:'small'}}>{edge.node.frontmatter.date}</List.Description>
+                            </List.Content>
+                            </List.Item>
                     )
                 })}
-            </ol>
-        </Layout>
-    )
-}
-
+            </List >
+ */
 export default BlogPage
