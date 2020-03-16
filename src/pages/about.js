@@ -5,7 +5,7 @@ import WhatAmIUsing from '../components/WhatAmIUsing';
 import ReachMe from '../components/ReachMe';
 
 import Layout from '../components/layout';
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import {Divider, Header, Segment} from 'semantic-ui-react'
 
 /**
