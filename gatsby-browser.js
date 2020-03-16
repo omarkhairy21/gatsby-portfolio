@@ -3,7 +3,7 @@
 // Very Bad
 //require("prismjs/themes/prism-funky.css")
 // nice
-//require("prismjs/themes/prism-okaidia.css")
+require("prismjs/themes/prism-okaidia.css")
 // flate white not suitable with the theme
 //require("prismjs/themes/prism-solarizedlight.css")
 // nice
