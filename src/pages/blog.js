@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout';
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import { Header, List } from 'semantic-ui-react';
 
 const BlogPage = () => {
