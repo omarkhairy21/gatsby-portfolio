@@ -3,13 +3,14 @@ import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 require("prismjs/themes/prism-shades-of-purple.css");
+
 export const query= graphql`
   query($slug: String!){
     contentfulBlogPost(slug:{eq: $slug}){
       title
       publishedData(formatString:"MMMM DD, YYYY")
       body{
-        body
+        json
       }
     }
   }
@@ -30,7 +31,7 @@ const Blog = (props) => {
     <Layout>
     <h1>{props.data.contentfulBlogPost.title}</h1>
     <p>{props.data.contentfulBlogPost.publishedData}</p>
-    {documentToReactComponents(props.data.contentfulBlogPost.body.body, options)}
+    {documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
     </Layout>
   )
 }
