@@ -12,6 +12,25 @@ I just launched a new bootcamp!
 2. GraphQL
 3. React
 
+```graphql
+{
+  allContentfulAsset {
+    edges {
+      node {
+        title
+        resize(width: 100) {
+          src
+          width
+          height
+        }
+      }
+    }
+  }
+}
+
+```
+
+
 ```javascript
 
   const person = function(name){

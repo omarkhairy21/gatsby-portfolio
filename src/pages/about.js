@@ -39,9 +39,9 @@ const AboutPage = () => {
                 <Header as='h3'>- Postgres DB</Header>
                 <Header as='h3'>- Functional Programming</Header>
                 <Header as='h3'>- AWS AND AZURE</Header>
-                <Header as='h3'>- Serverless Archeticture</Header>
+                <Header as='h3'>- Serverless Architecture Architecture</Header>
             <Segment inverted color='grey'>
-            {/* <ReachMe /> */}
+            <ReachMe />
             </Segment>
         </Layout>   
     );

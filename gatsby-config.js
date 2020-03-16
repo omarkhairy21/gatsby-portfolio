@@ -38,11 +38,11 @@ module.exports = {
                         maxWidth: 750,
                         linkImagesToOriginal: false
                     }
-                }
+                },
+                'gatsby-remark-prismjs'
             ]
         }
       },
-      'gatsby-remark-prismjs',
       'gatsby-plugin-sitemap',    
       {
         resolve: `gatsby-plugin-manifest`,

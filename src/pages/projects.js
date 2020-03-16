@@ -16,11 +16,14 @@ const ProjectPage = () => {
                           date
                           thumbnail{
                             childImageSharp {
-								fixed(width: 50, height: 50) {
-                                   src     
+                              fixed(width: 50, height: 50) {
+                                    src     
+                              }
                             }
-                         }
-                        }
+                          }
+                      }
+                      fields {
+                        slug
                       }
                   }
               }
@@ -39,7 +42,7 @@ const ProjectPage = () => {
                           <Image  src={`${edge.node.frontmatter.thumbnail.childImageSharp.fixed.src}`} inline='true'/>
                         <List.Content>
                           <List.Header as='h2' style={{marginBottom:'0.5rem'}}> 
-                          <Link to={`/projects`}>
+                          <Link to={`/projects/${edge.node.fields.slug}`}>
                             {edge.node.frontmatter.title}
                           </Link>
                           </List.Header>
