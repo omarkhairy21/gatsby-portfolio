@@ -9,4 +9,4 @@
 // nice
 //require("prismjs/themes/prism-tomorrow.css")
 
-require("prismjs/themes/prism-shades-of-purple.css");
+// require("prismjs/themes/prism-shades-of-purple.css");
