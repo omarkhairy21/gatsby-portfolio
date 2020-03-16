@@ -1,7 +1,7 @@
 {
-  "name": "khairy.me",
+  "name": "gatsby.khairy.me",
   "private": true,
-  "description": "khairy.me Personal website and blog",
+  "description": "gatsby.khairy.me Personal website and blog",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
